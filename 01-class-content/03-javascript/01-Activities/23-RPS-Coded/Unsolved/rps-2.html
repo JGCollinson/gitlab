@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Rock Paper Scissors Part 2
+  </title>
+</head>
+
+<body>
+
+  <div id="game">
+  
+  <ol>
+    <li><strong>You chose:</strong><span id="userGuess">${userGuess}</span></li>
+    <li><strong>The comptuer chose:</strong><span id="computerGuess">${computerGuess}</span></li>
+    <li><strong>Wins:</strong><span id="wins">${wins}</span></li>
+    <li><strong>Losses:</strong><span id="losses">${losses}</span></li>
+    <li><strong>Ties:</strong><span id="ties">${ties}</span></li>   
+  </ol>
+
+  </div>
+
+  <script type="text/javascript">
+
+    // Creates an array that lists out all of the options (Rock, Paper, or Scissors).
+    var computerChoices = ["r", "p", "s"];
+    var wins = 0;
+    var losses = 0;
+    var ties = 0;
+    var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+    var userGuess = event.key;
+    // This function is run whenever the user presses a key.
+    document.onkeyup = function(event) {
+
+      // Determines which key was pressed.
+      if(["r","p","s"].includes(userGuess)){
+      
+      // Randomly chooses a choice from the options array. This is the Computer's guess.
+
+      // Alerts the key the user pressed (userGuess).
+      console.log("User guess: " + userGuess);
+
+      // Alerts the Computer's guess.
+      console.log("Computer guess: " + computerGuess);
+      
+      //increments w,l,ties
+      if(userGuess === computerGuess) {
+        ties++;
+      }
+      else if(userGuess.startswith("r") && computerGuess.startsWith("s")) {
+        wins++;
+      }
+      else if(userGuess.startswith("p") && computerGuess.startsWith("r")) {
+        wins++;
+      }
+      else if(userGuess.startsWith("s") && computerGuess.startsWith("p")) {
+        wins++;
+      }
+      else{
+        losses++;
+      }
+
+    } };
+  </script>
+
+</body>
+
+</html>
+
+
+//increments w,l,ties
+if(userGuess === computerGuess) {
+  ties++;
+}
+else if(userGuess === "r" && computerGuess === "s" {
+  wins++;
+}
+else if(userGuess.startswith("p") && computerGuess.startsWith("r")) {
+  wins++;
+}
+else if(userGuess.startsWith("s") && computerGuess.startsWith("p")) {
+  wins++;
+}
+else{
+  losses++;
+}
